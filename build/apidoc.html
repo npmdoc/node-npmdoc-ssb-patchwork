@@ -1,0 +1,1672 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/ssbc/patchwork#readme"
+
+    >ssb-patchwork (v2.12.4)</a>
+</h1>
+<h4>safe secure sharing</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ssb-patchwork">module ssb-patchwork</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.config">
+            function <span class="apidocSignatureSpan">ssb-patchwork.</span>config
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.processor">
+            function <span class="apidocSignatureSpan">ssb-patchwork.</span>processor
+            <span class="apidocSignatureSpan">(sbot, db, state, emit)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.server_process">
+            function <span class="apidocSignatureSpan">ssb-patchwork.</span>server_process
+            <span class="apidocSignatureSpan">(config, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.ws_server">
+            function <span class="apidocSignatureSpan">ssb-patchwork.</span>ws_server
+            <span class="apidocSignatureSpan">(sbot, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ssb-patchwork.</span>friends_with_gossip_priority</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ssb-patchwork.</span>http_server</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ssb-patchwork.</span>util</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ssb-patchwork.config">module ssb-patchwork.config</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.config.config">
+            function <span class="apidocSignatureSpan">ssb-patchwork.</span>config
+            <span class="apidocSignatureSpan">(conf)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ssb-patchwork.friends_with_gossip_priority">module ssb-patchwork.friends_with_gossip_priority</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.friends_with_gossip_priority.init">
+            function <span class="apidocSignatureSpan">ssb-patchwork.friends_with_gossip_priority.</span>init
+            <span class="apidocSignatureSpan">(sbot, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ssb-patchwork.friends_with_gossip_priority.</span>manifest</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">ssb-patchwork.friends_with_gossip_priority.</span>name</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">ssb-patchwork.friends_with_gossip_priority.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ssb-patchwork.http_server">module ssb-patchwork.http_server</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.http_server.AppStack">
+            function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>AppStack
+            <span class="apidocSignatureSpan">(sbot, opts, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.http_server.BlobStack">
+            function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>BlobStack
+            <span class="apidocSignatureSpan">(sbot, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.http_server.DeviceAccessControl">
+            function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>DeviceAccessControl
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.http_server.FileStack">
+            function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>FileStack
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.http_server.Log">
+            function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>Log
+            <span class="apidocSignatureSpan">(sbot)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.http_server.ServeApp">
+            function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>ServeApp
+            <span class="apidocSignatureSpan">(sbot, opts, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.http_server.ServeBlobs">
+            function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>ServeBlobs
+            <span class="apidocSignatureSpan">(sbot)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.http_server.ServeFiles">
+            function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>ServeFiles
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ssb-patchwork.processor">module ssb-patchwork.processor</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.processor.processor">
+            function <span class="apidocSignatureSpan">ssb-patchwork.</span>processor
+            <span class="apidocSignatureSpan">(sbot, db, state, emit)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ssb-patchwork.server_process">module ssb-patchwork.server_process</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.server_process.server_process">
+            function <span class="apidocSignatureSpan">ssb-patchwork.</span>server_process
+            <span class="apidocSignatureSpan">(config, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ssb-patchwork.util">module ssb-patchwork.util</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.util.findLink">
+            function <span class="apidocSignatureSpan">ssb-patchwork.util.</span>findLink
+            <span class="apidocSignatureSpan">(links, id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.util.getThreadHasUnread">
+            function <span class="apidocSignatureSpan">ssb-patchwork.util.</span>getThreadHasUnread
+            <span class="apidocSignatureSpan">(sbot, msg, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.util.index">
+            function <span class="apidocSignatureSpan">ssb-patchwork.util.</span>index
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ssb-patchwork.ws_server">module ssb-patchwork.ws_server</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.ws_server.ws_server">
+            function <span class="apidocSignatureSpan">ssb-patchwork.</span>ws_server
+            <span class="apidocSignatureSpan">(sbot, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ssb-patchwork.ws_server.verifyClient">
+            function <span class="apidocSignatureSpan">ssb-patchwork.ws_server.</span>verifyClient
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ssb-patchwork" id="apidoc.module.ssb-patchwork">module ssb-patchwork</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.config" id="apidoc.element.ssb-patchwork.config">
+        function <span class="apidocSignatureSpan">ssb-patchwork.</span>config
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">config = function (conf) {
+  // ask the oracle thy question
+  var oracle = {
+    getHostname: function () {
+      return conf.host || &#x27;localhost&#x27;
+    },
+    getPort: function () {
+      return 7777
+    },
+    getLocalUrl: function () {
+      return (oracle.useTLS()?&#x27;https&#x27;:&#x27;http&#x27;)+&#x27;://&#x27;+oracle.getHostname()+&#x27;:&#x27;+oracle.getPort()
+    },
+
+    allowRemoteAccess: function () {
+      return conf.allowRemoteAccess
+    },
+
+    requiresPassword: function () {
+      return isString(conf.singleUserPassword)
+    },
+    checkPassword: function (str) {
+      return str === conf.singleUserPassword
+    },
+
+    useTLS: function () {
+      return !!conf.tls
+    },
+    validateTLS: function () {
+      if (!isObject(conf.tls)) {
+        console.log(&#x27;ERROR! tls config requires tls.key (path to the keyfile) and tls.cert (path to the certfile)&#x27;)
+        return false
+      }
+      if (!isString(conf.tls.key)) {
+        console.log(&#x27;ERROR! tls.key, a path to your TLS key, is required for TLS to work.&#x27;)
+        return false
+      }
+      if (!isString(conf.tls.cert)) {
+        console.log(&#x27;ERROR! tls.cert, a path to your TLS cert, is required for TLS to work.&#x27;)
+        return false
+      }
+      try {
+        var keyStat = fs.statSync(conf.tls.key)
+        if (!keyStat.isFile())
+          throw &#x22;err&#x22;
+      } catch (e) {
+        console.log(&#x27;ERROR! the file specified by the tls.key path was not valid.&#x27;)
+        return false
+      }
+      try {
+        var certStat = fs.statSync(conf.tls.cert)
+        if (!certStat.isFile())
+          throw &#x22;err&#x22;
+      } catch (e) {
+        console.log(&#x27;ERROR! the file specified by the tls.cert path was not valid.&#x27;)
+        return false
+      }
+      return true
+    },
+    getTLS: function () {
+      return {
+        key: fs.readFileSync(conf.tls.key),
+        cert: fs.readFileSync(conf.tls.cert)
+      }
+    },
+
+    // function to validate the config choices made
+    hasError: function () {
+      // error: allowing remote access but without a TLS cert
+      if (this.allowRemoteAccess() &#x26;&#x26; !this.useTLS())
+        return true
+      // error: bad TLS config
+      if (this.useTLS() &#x26;&#x26; !this.validateTLS())
+        return true
+    },
+    allowUnsafe: function () {
+      return conf.unsafe
+    }
+  }
+
+  // give the user some feedback about the config state
+
+  // password config
+  if (oracle.requiresPassword())
+    console.log(&#x27;[CFG] Password: YES.&#x27;)
+  else
+    console.log(&#x27;[CFG] Password: NO.&#x27;)
+
+  // TLS
+  if (oracle.useTLS())
+    console.log(&#x27;[CFG] TLS: YES.&#x27;)
+  else
+    console.log(&#x27;[CFG] TLS: NO.&#x27;)
+
+  // allowRemoteAccess variations
+  if (oracle.allowRemoteAccess()) {
+    console.log(&#x27;[CFG] Remote Access: YES.&#x27;)
+    if (!oracle.requiresPassword())
+      console.log(&#x27;WARNING! Remote access is allowed, but no password is configured. This is not safe!&#x27;)
+    if (!oracle.useTLS())
+      console.log(&#x27;ERROR! Remote access is allowed, but no TLS security is configured. Other devices will be able to steal the password
+ or inject attacks.&#x27;)
+  } else
+    console.log(&#x27;[CFG] Remote Access: NO.&#x27;)
+
+  return oracle
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.processor" id="apidoc.element.ssb-patchwork.processor">
+        function <span class="apidocSignatureSpan">ssb-patchwork.</span>processor
+        <span class="apidocSignatureSpan">(sbot, db, state, emit)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">processor = function (sbot, db, state, emit) {
+
+  var processors = {
+    post: function (msg) {
+      var me = getProfile(sbot.id)
+      var author = msg.value.author
+      var by_me = (author === sbot.id)
+      var c = msg.value.content
+      var root = mlib.link(c.root, &#x27;msg&#x27;)
+      var recps = mlib.links(c.recps)
+      var mentions = mlib.links(c.mentions)
+
+      // inbox index:
+      // add msgs that mention or address the user
+      var inboxRow
+      if (u.findLink(mentions, sbot.id) || u.findLink(recps, sbot.id)) {
+        // if a reply, make sure we have the root already
+        if (root)
+          inboxRow = state.inbox.sortedUpdate(msg.received, root.link)
+        if (!inboxRow) {
+          // fallback to inserting the current message, if the root isnt available (or its not a reply)
+          inboxRow = state.inbox.sortedUpsert(msg.received, msg.key)
+        }
+        emit(&#x27;index-change&#x27;, { index: &#x27;inbox&#x27; })
+        attachChildIsRead(inboxRow, msg.key)
+      }
+      // update for replies
+      else if (root) {
+        inboxRow = state.inbox.find(root.link)
+        if (inboxRow) {
+          state.inbox.sortedUpsert(msg.received, root.link)
+          emit(&#x27;index-change&#x27;, { index: &#x27;inbox&#x27; })
+          attachChildIsRead(inboxRow, msg.key)
+        }
+      }
+
+      // inbox sub-indexes
+      // note, these sub-indexes shouldnt have overlap: thus the else/if
+      // private posts index
+      var bookmarkRow
+      if (u.findLink(recps, sbot.id)) {
+        var privatePostsRow
+        // update replies
+        if (root) {
+          privatePostsRow = state.privatePosts.find(root.link)
+          if (privatePostsRow) {
+            state.privatePosts.sortedUpsert(ts(msg), root.link)
+            emit(&#x27;index-change&#x27;, { index: &#x27;privatePosts&#x27; })
+            attachChildIsRead(privatePostsRow, msg.key)
+          }
+        }
+        // add msgs addressed to the user
+        else if (!privatePostsRow) {
+          privatePostsRow = state.privatePosts.sortedUpsert(ts(msg), root ? root.link : msg.key)
+          emit(&#x27;index-change&#x27;, { index: &#x27;privatePosts&#x27; })
+          attachChildIsRead(privatePostsRow, msg.key)
+        }
+      }
+      // bookmarks index: update for replies
+      else if (root &#x26;&#x26; (bookmarkRow = state.bookmarks.find(root.link))) {
+        state.bookmarks.sortedUpsert(ts(msg), root.link)
+        emit(&#x27;index-change&#x27;, { index: &#x27;bookmarks&#x27; })
+        attachChildIsRead(bookmarkRow, msg.key)
+      }
+      // mentions index: add msgs that mention the user
+      else if (u.findLink(mentions, sbot.id)) {
+        var mentionRow = state.mentions.sortedUpsert(ts(msg), root ? root.link : msg.key)
+        emit(&#x27;index-change&#x27;, { index: &#x27;mentions&#x27; })
+        attachChildIsRead(mentionRow, msg.key)
+      }
+
+      // public posts index: add public posts / replies
+      if (recps.length === 0) {
+        state.publicPosts.sortedUpsert(ts(msg), root ? root.link : msg.key)
+        emit(&#x27;index-change&#x27;, { index: &#x27;publicPosts&#x27; })
+      }
+
+      if (c.channel &#x26;&#x26; typeof c.channel === &#x27;string&#x27;) {
+        // channels index: add public posts / replies
+        var indexName = &#x27;channel-&#x27;+c.channel
+        var index = state[indexName] = (state[indexName] || u.index(indexName))
+        index.sortedUpsert(msg.value.timestamp, root ? root.link : msg.key)
+        emit(&#x27;index-change&#x27;, { index: indexName })
+
+        // inbox index: add watched channels
+        if (index.watched) {
+          var inboxRow
+          if (root)
+            // only do updates if a reply, we dont want inbox items that dont have a root
+            inboxRow = state.inbox.sortedUpdate(ts(msg), root.link)
+          else
+            inboxRow = state.inbox.sortedInsert(ts(msg), msg.key)
+          if (inboxRow) {
+            emit(&#x27;index-change&#x27;, { index: &#x27;inbox&#x27; })
+            attachChildIsRead(inboxRow, msg.key)
+          }
+        }
+      }
+    },
+
+    contact: function (msg) {
+      mlib.links(msg.value.content.contact, &#x27;feed&#x27;).forEach(function (link) {
+        // update profiles
+        var toself = link.link === msg.value.author
+        if (toself) updateSelfContact(msg.value.author ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.server_process" id="apidoc.element.ssb-patchwork.server_process">
+        function <span class="apidocSignatureSpan">ssb-patchwork.</span>server_process
+        <span class="apidocSignatureSpan">(config, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">server_process = function (config, cb) {
+  // load config
+
+  // load languages
+  var t = require(&#x27;patchwork-translations&#x27;)
+  t.setLocale(require(&#x27;os-locale&#x27;).sync())
+
+  // validate the config
+  var configOracle = require(&#x27;./config&#x27;)(config)
+  if (configOracle.hasError()) {
+    if (configOracle.allowUnsafe())
+      console.log(&#x27;\n&#x27; + t(&#x27;unsafeConfigIgnore&#x27;))
+    else {
+      console.log(&#x27;\n&#x27; + t(&#x27;unsafeConfigAbort&#x27;))
+      return
+    }
+  }
+
+  logLicense() // per the GPL&#x27;s recommendation, let ppl know the license
+
+  console.log(t(&#x27;Starting&#x27;))
+
+  // start sbot
+  var createSbot = require(&#x27;scuttlebot&#x27;)
+    .use(require(&#x27;scuttlebot/plugins/master&#x27;))
+    .use(require(&#x27;./lib/persistent-gossip&#x27;)) // override
+    .use(require(&#x27;./lib/friends-with-gossip-priority&#x27;))
+    .use(require(&#x27;scuttlebot/plugins/replicate&#x27;))
+    .use(require(&#x27;ssb-blobs&#x27;))
+    .use(require(&#x27;scuttlebot/plugins/invite&#x27;))
+    .use(require(&#x27;scuttlebot/plugins/block&#x27;))
+    .use(require(&#x27;scuttlebot/plugins/logging&#x27;))
+    .use(require(&#x27;scuttlebot/plugins/private&#x27;))
+    .use(require(&#x27;scuttlebot/plugins/local&#x27;))
+    .use(require(&#x27;ssb-notifier&#x27;))
+    .use(require(&#x27;./api&#x27;))
+
+  var sbot = createSbot(config)
+
+  // write manifest file
+  var fs = require(&#x27;fs&#x27;)
+  fs.writeFileSync(
+    path.join(config.path, &#x27;manifest.json&#x27;),
+    JSON.stringify(sbot.getManifest(), null, 2)
+  )
+
+  // setup server
+  var http = require(&#x27;http&#x27;)
+  var https = require(&#x27;https&#x27;)
+  var ws = require(&#x27;pull-ws-server&#x27;)
+  var httpStack = require(&#x27;./http-server&#x27;)
+  var httpServerFn = httpStack.AppStack(sbot, { uiPath: path.join(__dirname, &#x27;ui&#x27;) }, configOracle)
+  var wsServerFn = require(&#x27;./ws-server&#x27;)(sbot)
+
+  var serverOpts = configOracle.useTLS() ? configOracle.getTLS() : {}
+  serverOpts.verifyClient = require(&#x27;./ws-server&#x27;).verifyClient(configOracle)
+  var server = ws.createServer(serverOpts)
+  server.on(&#x27;error&#x27;, fatalError)
+  server.on(&#x27;connection&#x27;, wsServerFn)
+  server.on(&#x27;request&#x27;, httpServerFn)
+  server.listen(configOracle.getPort())
+  if (cb) {
+    server.once(&#x27;listening&#x27;, cb)
+  }
+  console.log(t(&#x27;ServingAt&#x27;, {url: configOracle.getLocalUrl()}))
+
+  // basic error handling
+  function fatalError (e) {
+    if (e.code === &#x27;EADDRINUSE&#x27;)
+      console.error(&#x27;\n&#x27; + t(&#x27;PortInUse&#x27;, {port: e.port}) + &#x27;\n&#x27;)
+    else
+      console.error(e.stack || e.toString())
+    process.exit(1)
+  }
+  process.on(&#x27;uncaughtException&#x27;, fatalError)
+
+  function logLicense () {
+    console.log(t(&#x27;LicenseConsole&#x27;, {years: &#x27;2015-2016&#x27;}) + &#x27;\n&#x27;)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.ws_server" id="apidoc.element.ssb-patchwork.ws_server">
+        function <span class="apidocSignatureSpan">ssb-patchwork.</span>ws_server
+        <span class="apidocSignatureSpan">(sbot, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ws_server = function (sbot, opts) {
+  return function (stream) {
+    // create rpc object
+    var rpc = muxrpc({}, sbot.manifest(), serialize)(sbot)
+    rpc.authorized = { id: sbot.id, role: &#x27;master&#x27; }
+
+    // start the stream
+    pull(stream, rpc.createStream(), stream)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ssb-patchwork.config" id="apidoc.module.ssb-patchwork.config">module ssb-patchwork.config</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.config.config" id="apidoc.element.ssb-patchwork.config.config">
+        function <span class="apidocSignatureSpan">ssb-patchwork.</span>config
+        <span class="apidocSignatureSpan">(conf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">config = function (conf) {
+  // ask the oracle thy question
+  var oracle = {
+    getHostname: function () {
+      return conf.host || &#x27;localhost&#x27;
+    },
+    getPort: function () {
+      return 7777
+    },
+    getLocalUrl: function () {
+      return (oracle.useTLS()?&#x27;https&#x27;:&#x27;http&#x27;)+&#x27;://&#x27;+oracle.getHostname()+&#x27;:&#x27;+oracle.getPort()
+    },
+
+    allowRemoteAccess: function () {
+      return conf.allowRemoteAccess
+    },
+
+    requiresPassword: function () {
+      return isString(conf.singleUserPassword)
+    },
+    checkPassword: function (str) {
+      return str === conf.singleUserPassword
+    },
+
+    useTLS: function () {
+      return !!conf.tls
+    },
+    validateTLS: function () {
+      if (!isObject(conf.tls)) {
+        console.log(&#x27;ERROR! tls config requires tls.key (path to the keyfile) and tls.cert (path to the certfile)&#x27;)
+        return false
+      }
+      if (!isString(conf.tls.key)) {
+        console.log(&#x27;ERROR! tls.key, a path to your TLS key, is required for TLS to work.&#x27;)
+        return false
+      }
+      if (!isString(conf.tls.cert)) {
+        console.log(&#x27;ERROR! tls.cert, a path to your TLS cert, is required for TLS to work.&#x27;)
+        return false
+      }
+      try {
+        var keyStat = fs.statSync(conf.tls.key)
+        if (!keyStat.isFile())
+          throw &#x22;err&#x22;
+      } catch (e) {
+        console.log(&#x27;ERROR! the file specified by the tls.key path was not valid.&#x27;)
+        return false
+      }
+      try {
+        var certStat = fs.statSync(conf.tls.cert)
+        if (!certStat.isFile())
+          throw &#x22;err&#x22;
+      } catch (e) {
+        console.log(&#x27;ERROR! the file specified by the tls.cert path was not valid.&#x27;)
+        return false
+      }
+      return true
+    },
+    getTLS: function () {
+      return {
+        key: fs.readFileSync(conf.tls.key),
+        cert: fs.readFileSync(conf.tls.cert)
+      }
+    },
+
+    // function to validate the config choices made
+    hasError: function () {
+      // error: allowing remote access but without a TLS cert
+      if (this.allowRemoteAccess() &#x26;&#x26; !this.useTLS())
+        return true
+      // error: bad TLS config
+      if (this.useTLS() &#x26;&#x26; !this.validateTLS())
+        return true
+    },
+    allowUnsafe: function () {
+      return conf.unsafe
+    }
+  }
+
+  // give the user some feedback about the config state
+
+  // password config
+  if (oracle.requiresPassword())
+    console.log(&#x27;[CFG] Password: YES.&#x27;)
+  else
+    console.log(&#x27;[CFG] Password: NO.&#x27;)
+
+  // TLS
+  if (oracle.useTLS())
+    console.log(&#x27;[CFG] TLS: YES.&#x27;)
+  else
+    console.log(&#x27;[CFG] TLS: NO.&#x27;)
+
+  // allowRemoteAccess variations
+  if (oracle.allowRemoteAccess()) {
+    console.log(&#x27;[CFG] Remote Access: YES.&#x27;)
+    if (!oracle.requiresPassword())
+      console.log(&#x27;WARNING! Remote access is allowed, but no password is configured. This is not safe!&#x27;)
+    if (!oracle.useTLS())
+      console.log(&#x27;ERROR! Remote access is allowed, but no TLS security is configured. Other devices will be able to steal the password
+ or inject attacks.&#x27;)
+  } else
+    console.log(&#x27;[CFG] Remote Access: NO.&#x27;)
+
+  return oracle
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ssb-patchwork.friends_with_gossip_priority" id="apidoc.module.ssb-patchwork.friends_with_gossip_priority">module ssb-patchwork.friends_with_gossip_priority</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.friends_with_gossip_priority.init" id="apidoc.element.ssb-patchwork.friends_with_gossip_priority.init">
+        function <span class="apidocSignatureSpan">ssb-patchwork.friends_with_gossip_priority.</span>init
+        <span class="apidocSignatureSpan">(sbot, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (sbot, config) {
+
+  var graphs = {
+    follow: new Graphmitter(),
+    flag: new Graphmitter()
+  }
+
+  // view processor
+  var syncCbs = []
+  function awaitSync (cb) {
+    if (syncCbs) syncCbs.push(cb)
+    else cb()
+  }
+
+  // read/watch the log for changes to the social graph
+  pull(sbot.createLogStream({ live: true }), pull.drain(function (msg) {
+
+    if (msg.sync) {
+      syncCbs.forEach(function (cb) { cb() })
+      syncCbs = null
+
+      if (sbot.gossip) {
+        // prioritize friends
+        var friends = graphs[&#x27;follow&#x27;].toJSON()
+        sbot.gossip.peers().forEach(function(peer) {
+          if (isFriend(friends, sbot.id, peer.key)) {
+            sbot.gossip.add(peer, &#x27;friends&#x27;)
+          }
+        })
+      }
+
+      return
+    }
+
+    var c = msg.value.content
+    if (c.type == &#x27;contact&#x27;) {
+      mlib.asLinks(c.contact, &#x27;feed&#x27;).forEach(function (link) {
+        if (&#x27;following&#x27; in c) {
+          if (c.following)
+            graphs.follow.edge(msg.value.author, link.link, true)
+          else
+            graphs.follow.del(msg.value.author, link.link)
+
+        }
+        if (&#x27;flagged&#x27; in c) {
+          if (c.flagged)
+            graphs.flag.edge(msg.value.author, link.link, c.flagged)
+          else
+            graphs.flag.del(msg.value.author, link.link)
+        }
+      })
+    }
+  }))
+
+  return {
+
+    get: valid.sync(function (opts) {
+      var g = graphs[opts.graph || &#x27;follow&#x27;]
+      if(!g) throw new Error(&#x27;opts.graph must be provided&#x27;)
+      return g.get(opts.source, opts.dest)
+    }, &#x27;object?&#x27;),
+
+    all: valid.async(function (graph, cb) {
+      if (typeof graph == &#x27;function&#x27;) {
+        cb = graph
+        graph = null
+      }
+      if (!graph)
+        graph = &#x27;follow&#x27;
+      awaitSync(function () {
+        cb(null, graphs[graph] ? graphs[graph].toJSON() : null)
+      })
+    }, &#x27;string?&#x27;),
+
+    path: valid.sync(function (opts) {
+      if(isString(opts))
+        opts = {source: sbot.id, dest: opts}
+      return graphs.follow.path(opts)
+
+    }, &#x27;string|object&#x27;),
+
+    createFriendStream: valid.source(function (opts) {
+      opts = opts || {}
+      var live = opts.live === true
+      var meta = opts.meta === true
+      var start = opts.start || sbot.id
+      var graph = graphs[opts.graph || &#x27;follow&#x27;]
+      if(!graph)
+        return pull.error(new Error(&#x27;unknown graph:&#x27; + opts.graph))
+      var cancel, ps = pushable(function () {
+        cancel &#x26;&#x26; cancel()
+      })
+
+      function push (to, hops) {
+        return ps.push(meta ? {id: to, hops: hops} : to)
+      }
+
+      //by default, also emit your own key.
+      if(opts.self !== false)
+        push(start, 0)
+
+      var conf = config.friends || {}
+      cancel = graph.traverse({
+        start: start,
+        hops: opts.hops || conf.hops || 3,
+        max: opts.dunbar || conf.dunbar || 150,
+        each: function (_, to, hops) {
+          if(to !== start) push(to, hops)
+        }
+      })
+
+      if(!live) { cancel(); ps.end() }
+
+      return ps
+    }, &#x27;createFriendStreamOpts?&#x27;),
+
+    hops: valid.async(function (start, graph, opts, cb) {
+      if (typeof opts == &#x27;function&#x27;) { // (start|opts, graph, cb)
+        cb = opts
+        opts = null
+      } else if (typeof graph == &#x27;function&#x27;) { // (start|opts, cb)
+        cb = graph
+        opts = graph = null
+      }
+      opts = opts || {}
+      if(isString(start)) { // (start, ...)
+        // first arg is id string
+        opts.start = start
+      } else if (start &#x26;&#x26; typeof start == &#x27;object&#x27;) { // (opts, ...)
+        // first arg is opts
+        for (var k in start)
+          opts[k] = start[k]
+      }
+
+      var conf = config.friends || {}
+      opts.start  = opts.start  || sbot.id
+      opts.dunbar = opts.dunbar || conf.dunbar || 150
+      opts.hops   = opts.hops   || conf.hops   || 3
+
+      var g = graphs[graph || &#x27;follow&#x27;]
+      if (!g)
+        return cb(new Error(&#x27;Invalid graph type: &#x27;+graph))
+
+      awaitSync(function () {
+        cb(null, g.traverse(opts))
+      })
+    }, [&#x27;feedId&#x27;, &#x27;string?&#x27;, &#x27;object?&#x27;], [&#x27;createFriendStreamOpts&#x27;])
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ssb-patchwork.http_server" id="apidoc.module.ssb-patchwork.http_server">module ssb-patchwork.http_server</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.http_server.AppStack" id="apidoc.element.ssb-patchwork.http_server.AppStack">
+        function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>AppStack
+        <span class="apidocSignatureSpan">(sbot, opts, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AppStack = function (sbot, opts, config) {
+  return Stack(
+    Log(sbot),
+    PasswordAccessControl(config),
+    DeviceAccessControl(config),
+    ServeApp(sbot, opts, config),
+    ServeBlobs(sbot)
+  )
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+)
+
+// setup server
+var http = require(&#x27;http&#x27;)
+var https = require(&#x27;https&#x27;)
+var ws = require(&#x27;pull-ws-server&#x27;)
+var httpStack = require(&#x27;./http-server&#x27;)
+var httpServerFn = httpStack.<span class="apidocCodeKeywordSpan">AppStack</span>(sbot, { uiPath: path.join(__dirname, &#x27;ui&#
+x27;) }, configOracle)
+var wsServerFn = require(&#x27;./ws-server&#x27;)(sbot)
+
+var serverOpts = configOracle.useTLS() ? configOracle.getTLS() : {}
+serverOpts.verifyClient = require(&#x27;./ws-server&#x27;).verifyClient(configOracle)
+var server = ws.createServer(serverOpts)
+server.on(&#x27;error&#x27;, fatalError)
+server.on(&#x27;connection&#x27;, wsServerFn)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.http_server.BlobStack" id="apidoc.element.ssb-patchwork.http_server.BlobStack">
+        function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>BlobStack
+        <span class="apidocSignatureSpan">(sbot, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">BlobStack = function (sbot, opts) {
+  return Stack(
+    Log(sbot),
+    DeviceAccessControl(),
+    ServeBlobs(sbot)
+  )
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.http_server.DeviceAccessControl" id="apidoc.element.ssb-patchwork.http_server.DeviceAccessControl">
+        function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>DeviceAccessControl
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">DeviceAccessControl = function (config) {
+  return function (req, res, next) {
+    if (!config.requiresPassword(config))
+      return next() // no password required
+
+    // check the password
+    var authMatch = /^Basic (.*)$/i.exec(req.headers.authorization)
+    if (authMatch) {
+      var password = (new Buffer(authMatch[1], &#x27;base64&#x27;).toString()).split(&#x27;:&#x27;)[1]
+      if (password &#x26;&#x26; config.checkPassword(password))
+        return next() // password checks out
+    }
+
+    // deny
+    res.setHeader(&#x27;WWW-Authenticate&#x27;, &#x27;Basic realm=Authorization Required&#x27;)
+    respond(res, 401, &#x27;Unauthorized&#x27;)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.http_server.FileStack" id="apidoc.element.ssb-patchwork.http_server.FileStack">
+        function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>FileStack
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">FileStack = function (opts) {
+  return Stack(
+    Log(sbot),
+    DeviceAccessControl(),
+    ServeFiles()
+  )
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.http_server.Log" id="apidoc.element.ssb-patchwork.http_server.Log">
+        function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>Log
+        <span class="apidocSignatureSpan">(sbot)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Log = function (sbot) {
+  return function (req, res, next) {
+    sbot.emit(&#x27;log:info&#x27;, [&#x27;HTTP&#x27;, null, req.method + &#x27; &#x27; + req.url])
+    next()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.http_server.ServeApp" id="apidoc.element.ssb-patchwork.http_server.ServeApp">
+        function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>ServeApp
+        <span class="apidocSignatureSpan">(sbot, opts, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ServeApp = function (sbot, opts, config) {
+  if (!opts || !opts.uiPath)
+    throw &#x22;opts.uiPath is required&#x22;
+  return function (req, res, next) {
+    var parsed = URL.parse(req.url, true)
+    var pathname = parsed.pathname
+    if (pathname == &#x27;/&#x27;)
+      pathname = &#x27;/main.html&#x27;
+
+    // dynamic route: manifest.js
+    if (pathname == &#x27;/manifest.js&#x27;) {
+      res.setHeader(&#x27;Content-Security-Policy&#x27;, BlobCSP())
+      return respondSource(res, pull.once(&#x27;window.MANIFEST=&#x27;+JSON.stringify(sbot.manifest())+&#x27;;&#x27;))
+    }
+
+    // static files
+    var filepath = path.join(opts.uiPath, pathname)
+    fs.stat(filepath, function (err, stat) {
+      if(err) return next()
+      if(!stat.isFile()) return respond(res, 403, &#x27;May only load files&#x27;)
+
+      // set a special CSP for the main HTML file
+      if (pathname == &#x27;/main.html&#x27;)
+        res.setHeader(&#x27;Content-Security-Policy&#x27;, AppCSP(req, config)) // only give the open perms to main.html
+      else
+        res.setHeader(&#x27;Content-Security-Policy&#x27;, BlobCSP())
+
+      respondSource(res, toPull.source(fs.createReadStream(filepath)))
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.http_server.ServeBlobs" id="apidoc.element.ssb-patchwork.http_server.ServeBlobs">
+        function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>ServeBlobs
+        <span class="apidocSignatureSpan">(sbot)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ServeBlobs = function (sbot) {
+  return function (req, res, next) {
+    var parsed = URL.parse(req.url, true)
+    var hash = decodeURIComponent(parsed.pathname.slice(1))
+    sbot.blobs.want(hash, function(err, has) {
+      if (!has) return respond(res, 404, &#x27;File not found&#x27;)
+
+      // optional name override
+      if (parsed.query.name)
+        res.setHeader(&#x27;Content-Disposition&#x27;, &#x27;inline; filename=&#x27;+encodeURIComponent(parsed.query.name))
+
+      // serve
+      res.setHeader(&#x27;Content-Security-Policy&#x27;, BlobCSP())
+      respondSource(res, sbot.blobs.get(hash), false)
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.http_server.ServeFiles" id="apidoc.element.ssb-patchwork.http_server.ServeFiles">
+        function <span class="apidocSignatureSpan">ssb-patchwork.http_server.</span>ServeFiles
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ServeFiles = function () {
+  return function (req, res, next) {
+    var parsed = URL.parse(req.url, true)
+    fs.stat(parsed.pathname, function (err, stat) {
+      if(err) return respond(res, 404, &#x27;File not found&#x27;)
+      if(!stat.isFile()) return respond(res, 403, &#x27;May only load files&#x27;)
+      res.setHeader(&#x27;Content-Security-Policy&#x27;, BlobCSP())
+      respondSource(
+        res,
+        toPull.source(fs.createReadStream(parsed.pathname)),
+        false
+      )
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ssb-patchwork.processor" id="apidoc.module.ssb-patchwork.processor">module ssb-patchwork.processor</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.processor.processor" id="apidoc.element.ssb-patchwork.processor.processor">
+        function <span class="apidocSignatureSpan">ssb-patchwork.</span>processor
+        <span class="apidocSignatureSpan">(sbot, db, state, emit)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">processor = function (sbot, db, state, emit) {
+
+  var processors = {
+    post: function (msg) {
+      var me = getProfile(sbot.id)
+      var author = msg.value.author
+      var by_me = (author === sbot.id)
+      var c = msg.value.content
+      var root = mlib.link(c.root, &#x27;msg&#x27;)
+      var recps = mlib.links(c.recps)
+      var mentions = mlib.links(c.mentions)
+
+      // inbox index:
+      // add msgs that mention or address the user
+      var inboxRow
+      if (u.findLink(mentions, sbot.id) || u.findLink(recps, sbot.id)) {
+        // if a reply, make sure we have the root already
+        if (root)
+          inboxRow = state.inbox.sortedUpdate(msg.received, root.link)
+        if (!inboxRow) {
+          // fallback to inserting the current message, if the root isnt available (or its not a reply)
+          inboxRow = state.inbox.sortedUpsert(msg.received, msg.key)
+        }
+        emit(&#x27;index-change&#x27;, { index: &#x27;inbox&#x27; })
+        attachChildIsRead(inboxRow, msg.key)
+      }
+      // update for replies
+      else if (root) {
+        inboxRow = state.inbox.find(root.link)
+        if (inboxRow) {
+          state.inbox.sortedUpsert(msg.received, root.link)
+          emit(&#x27;index-change&#x27;, { index: &#x27;inbox&#x27; })
+          attachChildIsRead(inboxRow, msg.key)
+        }
+      }
+
+      // inbox sub-indexes
+      // note, these sub-indexes shouldnt have overlap: thus the else/if
+      // private posts index
+      var bookmarkRow
+      if (u.findLink(recps, sbot.id)) {
+        var privatePostsRow
+        // update replies
+        if (root) {
+          privatePostsRow = state.privatePosts.find(root.link)
+          if (privatePostsRow) {
+            state.privatePosts.sortedUpsert(ts(msg), root.link)
+            emit(&#x27;index-change&#x27;, { index: &#x27;privatePosts&#x27; })
+            attachChildIsRead(privatePostsRow, msg.key)
+          }
+        }
+        // add msgs addressed to the user
+        else if (!privatePostsRow) {
+          privatePostsRow = state.privatePosts.sortedUpsert(ts(msg), root ? root.link : msg.key)
+          emit(&#x27;index-change&#x27;, { index: &#x27;privatePosts&#x27; })
+          attachChildIsRead(privatePostsRow, msg.key)
+        }
+      }
+      // bookmarks index: update for replies
+      else if (root &#x26;&#x26; (bookmarkRow = state.bookmarks.find(root.link))) {
+        state.bookmarks.sortedUpsert(ts(msg), root.link)
+        emit(&#x27;index-change&#x27;, { index: &#x27;bookmarks&#x27; })
+        attachChildIsRead(bookmarkRow, msg.key)
+      }
+      // mentions index: add msgs that mention the user
+      else if (u.findLink(mentions, sbot.id)) {
+        var mentionRow = state.mentions.sortedUpsert(ts(msg), root ? root.link : msg.key)
+        emit(&#x27;index-change&#x27;, { index: &#x27;mentions&#x27; })
+        attachChildIsRead(mentionRow, msg.key)
+      }
+
+      // public posts index: add public posts / replies
+      if (recps.length === 0) {
+        state.publicPosts.sortedUpsert(ts(msg), root ? root.link : msg.key)
+        emit(&#x27;index-change&#x27;, { index: &#x27;publicPosts&#x27; })
+      }
+
+      if (c.channel &#x26;&#x26; typeof c.channel === &#x27;string&#x27;) {
+        // channels index: add public posts / replies
+        var indexName = &#x27;channel-&#x27;+c.channel
+        var index = state[indexName] = (state[indexName] || u.index(indexName))
+        index.sortedUpsert(msg.value.timestamp, root ? root.link : msg.key)
+        emit(&#x27;index-change&#x27;, { index: indexName })
+
+        // inbox index: add watched channels
+        if (index.watched) {
+          var inboxRow
+          if (root)
+            // only do updates if a reply, we dont want inbox items that dont have a root
+            inboxRow = state.inbox.sortedUpdate(ts(msg), root.link)
+          else
+            inboxRow = state.inbox.sortedInsert(ts(msg), msg.key)
+          if (inboxRow) {
+            emit(&#x27;index-change&#x27;, { index: &#x27;inbox&#x27; })
+            attachChildIsRead(inboxRow, msg.key)
+          }
+        }
+      }
+    },
+
+    contact: function (msg) {
+      mlib.links(msg.value.content.contact, &#x27;feed&#x27;).forEach(function (link) {
+        // update profiles
+        var toself = link.link === msg.value.author
+        if (toself) updateSelfContact(msg.value.author ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ssb-patchwork.server_process" id="apidoc.module.ssb-patchwork.server_process">module ssb-patchwork.server_process</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.server_process.server_process" id="apidoc.element.ssb-patchwork.server_process.server_process">
+        function <span class="apidocSignatureSpan">ssb-patchwork.</span>server_process
+        <span class="apidocSignatureSpan">(config, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">server_process = function (config, cb) {
+  // load config
+
+  // load languages
+  var t = require(&#x27;patchwork-translations&#x27;)
+  t.setLocale(require(&#x27;os-locale&#x27;).sync())
+
+  // validate the config
+  var configOracle = require(&#x27;./config&#x27;)(config)
+  if (configOracle.hasError()) {
+    if (configOracle.allowUnsafe())
+      console.log(&#x27;\n&#x27; + t(&#x27;unsafeConfigIgnore&#x27;))
+    else {
+      console.log(&#x27;\n&#x27; + t(&#x27;unsafeConfigAbort&#x27;))
+      return
+    }
+  }
+
+  logLicense() // per the GPL&#x27;s recommendation, let ppl know the license
+
+  console.log(t(&#x27;Starting&#x27;))
+
+  // start sbot
+  var createSbot = require(&#x27;scuttlebot&#x27;)
+    .use(require(&#x27;scuttlebot/plugins/master&#x27;))
+    .use(require(&#x27;./lib/persistent-gossip&#x27;)) // override
+    .use(require(&#x27;./lib/friends-with-gossip-priority&#x27;))
+    .use(require(&#x27;scuttlebot/plugins/replicate&#x27;))
+    .use(require(&#x27;ssb-blobs&#x27;))
+    .use(require(&#x27;scuttlebot/plugins/invite&#x27;))
+    .use(require(&#x27;scuttlebot/plugins/block&#x27;))
+    .use(require(&#x27;scuttlebot/plugins/logging&#x27;))
+    .use(require(&#x27;scuttlebot/plugins/private&#x27;))
+    .use(require(&#x27;scuttlebot/plugins/local&#x27;))
+    .use(require(&#x27;ssb-notifier&#x27;))
+    .use(require(&#x27;./api&#x27;))
+
+  var sbot = createSbot(config)
+
+  // write manifest file
+  var fs = require(&#x27;fs&#x27;)
+  fs.writeFileSync(
+    path.join(config.path, &#x27;manifest.json&#x27;),
+    JSON.stringify(sbot.getManifest(), null, 2)
+  )
+
+  // setup server
+  var http = require(&#x27;http&#x27;)
+  var https = require(&#x27;https&#x27;)
+  var ws = require(&#x27;pull-ws-server&#x27;)
+  var httpStack = require(&#x27;./http-server&#x27;)
+  var httpServerFn = httpStack.AppStack(sbot, { uiPath: path.join(__dirname, &#x27;ui&#x27;) }, configOracle)
+  var wsServerFn = require(&#x27;./ws-server&#x27;)(sbot)
+
+  var serverOpts = configOracle.useTLS() ? configOracle.getTLS() : {}
+  serverOpts.verifyClient = require(&#x27;./ws-server&#x27;).verifyClient(configOracle)
+  var server = ws.createServer(serverOpts)
+  server.on(&#x27;error&#x27;, fatalError)
+  server.on(&#x27;connection&#x27;, wsServerFn)
+  server.on(&#x27;request&#x27;, httpServerFn)
+  server.listen(configOracle.getPort())
+  if (cb) {
+    server.once(&#x27;listening&#x27;, cb)
+  }
+  console.log(t(&#x27;ServingAt&#x27;, {url: configOracle.getLocalUrl()}))
+
+  // basic error handling
+  function fatalError (e) {
+    if (e.code === &#x27;EADDRINUSE&#x27;)
+      console.error(&#x27;\n&#x27; + t(&#x27;PortInUse&#x27;, {port: e.port}) + &#x27;\n&#x27;)
+    else
+      console.error(e.stack || e.toString())
+    process.exit(1)
+  }
+  process.on(&#x27;uncaughtException&#x27;, fatalError)
+
+  function logLicense () {
+    console.log(t(&#x27;LicenseConsole&#x27;, {years: &#x27;2015-2016&#x27;}) + &#x27;\n&#x27;)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ssb-patchwork.util" id="apidoc.module.ssb-patchwork.util">module ssb-patchwork.util</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.util.findLink" id="apidoc.element.ssb-patchwork.util.findLink">
+        function <span class="apidocSignatureSpan">ssb-patchwork.util.</span>findLink
+        <span class="apidocSignatureSpan">(links, id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">findLink = function (links, id) {
+  for (var i=0; i &#x3c; (links ? links.length : 0); i++) {
+    if (links[i].link === id)
+      return links[i]
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var root = mlib.link(c.root, &#x27;msg&#x27;)
+var recps = mlib.links(c.recps)
+var mentions = mlib.links(c.mentions)
+
+// inbox index:
+// add msgs that mention or address the user
+var inboxRow
+if (u.<span class="apidocCodeKeywordSpan">findLink</span>(mentions, sbot.id) || u.findLink(recps, sbot.id)) {
+  // if a reply, make sure we have the root already
+  if (root)
+    inboxRow = state.inbox.sortedUpdate(msg.received, root.link)
+  if (!inboxRow) {
+    // fallback to inserting the current message, if the root isnt available (or its not a reply)
+    inboxRow = state.inbox.sortedUpsert(msg.received, msg.key)
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.util.getThreadHasUnread" id="apidoc.element.ssb-patchwork.util.getThreadHasUnread">
+        function <span class="apidocSignatureSpan">ssb-patchwork.util.</span>getThreadHasUnread
+        <span class="apidocSignatureSpan">(sbot, msg, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getThreadHasUnread = function (sbot, msg, cb) {
+  threadlib.getParentPostSummary(sbot, msg, { isRead: true }, function (err, thread) {
+    if (err) return cb(err)
+    cb(err, thread.hasUnread)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.util.index" id="apidoc.element.ssb-patchwork.util.index">
+        function <span class="apidocSignatureSpan">ssb-patchwork.util.</span>index
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">index = function (name) {
+  var index = new EventEmitter()
+  index.name = name
+  index.rows = []
+  index.lastAccessed = Date.now()
+
+  index.touch = function () {
+    index.lastAccessed = Date.now()
+  }
+
+  index.sortedInsert = function (ts, key) {
+    var row = (typeof ts == &#x27;object&#x27;) ? ts : { ts: ts, key: key }
+    for (var i=0; i &#x3c; index.rows.length; i++) {
+      if (index.rows[i].ts &#x3c; row.ts) {
+        index.rows.splice(i, 0, row)
+        if (timestampIsRecent(row.ts))
+          index.emit(&#x27;add&#x27;, row)
+        return row
+      }
+    }
+    index.rows.push(row)
+    if (timestampIsRecent(row.ts))
+      index.emit(&#x27;add&#x27;, row)
+    return row
+  }
+
+  index.sortedUpdate = function (ts, key) {
+    var i = index.indexOf(key)
+    if (i !== -1) {
+      // readd to index at new TS
+      if (index.rows[i].ts &#x3c; ts) {
+        var row = index.rows[i]
+        // remove from old position
+        index.rows.splice(i, 1)
+        // update values
+        row.ts = ts
+        // reinsert
+        index.sortedInsert(row)
+        return row
+      } else
+        return index.rows[i]
+    }
+  }
+
+  index.sortedUpsert = function (ts, key) {
+    var row = index.sortedUpdate(ts, key)
+    if (!row) {
+      // add to index
+      row = index.sortedInsert(ts, key)
+    }
+    return row
+  }
+
+  index.remove = function (key, keyname) {
+    var i = index.indexOf(key, keyname)
+    if (i !== -1)
+      index.rows.splice(i, 1)
+  }
+
+  index.indexOf = function (key, keyname) {
+    keyname = keyname || &#x27;key&#x27;
+    for (var i=0; i &#x3c; index.rows.length; i++) {
+      if (index.rows[i][keyname] === key)
+        return i
+    }
+    return -1
+  }
+
+  index.find = function (key, keyname) {
+    var i = index.indexOf(key, keyname)
+    if (i !== -1)
+      return index.rows[i]
+    return null
+  }
+
+  index.contains = function (key) {
+    return index.indexOf(index, key) !== -1
+  }
+
+  index.filter = index.rows.filter.bind(index.rows)
+
+  // helper to count # of messages that are new
+  index.countUntouched = function () {
+    // iterate until we find a ts older than lastAccessed, then return that #
+    for (var i=0; i &#x3c; index.rows.length; i++) {
+      if (index.rows[i].ts &#x3c; index.lastAccessed)
+        return i
+    }
+    return 0
+  }
+
+  function timestampIsRecent (ts) {
+    var now = Date.now()
+    var delta = Math.abs(now - ts)
+    return (delta &#x3c; IS_RECENT_MAX)
+  }
+
+  return index
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+state.publicPosts.sortedUpsert(ts(msg), root ? root.link : msg.key)
+emit(&#x27;index-change&#x27;, { index: &#x27;publicPosts&#x27; })
+      }
+
+      if (c.channel &#x26;&#x26; typeof c.channel === &#x27;string&#x27;) {
+// channels index: add public posts / replies
+var indexName = &#x27;channel-&#x27;+c.channel
+var index = state[indexName] = (state[indexName] || u.<span class="apidocCodeKeywordSpan">index</span>(indexName))
+index.sortedUpsert(msg.value.timestamp, root ? root.link : msg.key)
+emit(&#x27;index-change&#x27;, { index: indexName })
+
+// inbox index: add watched channels
+if (index.watched) {
+  var inboxRow
+  if (root)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ssb-patchwork.ws_server" id="apidoc.module.ssb-patchwork.ws_server">module ssb-patchwork.ws_server</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.ws_server.ws_server" id="apidoc.element.ssb-patchwork.ws_server.ws_server">
+        function <span class="apidocSignatureSpan">ssb-patchwork.</span>ws_server
+        <span class="apidocSignatureSpan">(sbot, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ws_server = function (sbot, opts) {
+  return function (stream) {
+    // create rpc object
+    var rpc = muxrpc({}, sbot.manifest(), serialize)(sbot)
+    rpc.authorized = { id: sbot.id, role: &#x27;master&#x27; }
+
+    // start the stream
+    pull(stream, rpc.createStream(), stream)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ssb-patchwork.ws_server.verifyClient" id="apidoc.element.ssb-patchwork.ws_server.verifyClient">
+        function <span class="apidocSignatureSpan">ssb-patchwork.ws_server.</span>verifyClient
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">verifyClient = function (config) {
+  return function (info) {
+    return info.origin === config.getLocalUrl()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var https = require(&#x27;https&#x27;)
+var ws = require(&#x27;pull-ws-server&#x27;)
+var httpStack = require(&#x27;./http-server&#x27;)
+var httpServerFn = httpStack.AppStack(sbot, { uiPath: path.join(__dirname, &#x27;ui&#x27;) }, configOracle)
+var wsServerFn = require(&#x27;./ws-server&#x27;)(sbot)
+
+var serverOpts = configOracle.useTLS() ? configOracle.getTLS() : {}
+serverOpts.verifyClient = require(&#x27;./ws-server&#x27;).<span class="apidocCodeKeywordSpan">verifyClient</span>(configOracle)
+var server = ws.createServer(serverOpts)
+server.on(&#x27;error&#x27;, fatalError)
+server.on(&#x27;connection&#x27;, wsServerFn)
+server.on(&#x27;request&#x27;, httpServerFn)
+server.listen(configOracle.getPort())
+if (cb) {
+  server.once(&#x27;listening&#x27;, cb)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
