@@ -409,7 +409,7 @@
 <tspan x="10" y="6506">  │   ├─┬ good-listener@1.2.2 </tspan>
 <tspan x="10" y="6522">  │   │ └── delegate@3.1.2 </tspan>
 <tspan x="10" y="6538">  │   ├── select@1.1.2 </tspan>
-<tspan x="10" y="6554">  │   └── tiny-emitter@1.1.0 </tspan>
+<tspan x="10" y="6554">  │   └── tiny-emitter@1.2.0 </tspan>
 <tspan x="10" y="6570">  ├── react-dom@0.14.9 </tspan>
 <tspan x="10" y="6586">  ├─┬ react-infinite@0.5.11 </tspan>
 <tspan x="10" y="6602">  │ ├── lodash.isarray@3.0.4 </tspan>
